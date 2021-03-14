@@ -15,6 +15,7 @@ func main(){
 	//[1]
     f2()
 	f3()
+	f4()
 }
 
 
@@ -42,4 +43,11 @@ P2.name = "a"
 P2.age = 10
 fmt.Printf("The person's name is %s\n", P2.name)
 
+}
+
+func f4(){
+	var s []int
+	s = make([]int, 0)
+	s = append(s, 1)
+	fmt.Printf("%v\n", s)
 }
