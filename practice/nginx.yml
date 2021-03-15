@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: job-1
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  labels:
+    app: nginx
+  name: my-nginx
+  namespace: job-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: nginx:1.15.2
+          imagePullPolicy: IfNotPresent
+          name: nginx
+          readinessProbe:
+            tcpSocket:
+              port: 80
+          livenessProbe:
+            tcpSocket:              # 端口检测方式
+              port: 80
+            initialDelaySeconds: 10 # 第一次探测前应该等待10s后,default 0s
+            periodSeconds: 5        # 检测间隔,default 10s
+            timeoutSeconds: 2       # 超时后等待多少时间， default 1s
+            successThreshold: 1     # 探测失败后，检测成功为2次表示就绪
+            failureThreshold: 2     # 检测失败后，重试次数，default 3, 超过：存活情况下重新启动容器，就绪下会被打上被就绪标签
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 10 # 等待10s后删除容器

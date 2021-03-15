@@ -38,7 +38,6 @@ func f2() {
 
 var P2 person
 
-func f3(){
 P2.name = "a"
 P2.age = 10
 fmt.Printf("The person's name is %s\n", P2.name)

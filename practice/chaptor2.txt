@@ -1,0 +1,70 @@
+
+
+# kubectl get deployment -n job-1
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+my-nginx   1/1     1            1           14m
+
+
+# kubectl get pod -n job-1
+NAME                        READY   STATUS    RESTARTS   AGE
+my-nginx-654d8f9ddf-snxv2   1/1     Running   0          25s
+
+# kubectl scale --replicas=3 deployment my-nginx -n job-1 --record
+deployment.apps/my-nginx scaled
+
+# kubectl rollout history deploy my-nginx -n job-1
+deployment.apps/my-nginx
+REVISION  CHANGE-CAUSE
+1         kubectl scale deployment my-nginx --replicas=3 --namespace=job-1 --record=true
+
+# kubectl set resources deploy my-nginx -c=nginx --limits=cpu=200m,memory=64Mi --requests=cpu=100m,memory=16Mi --record -n job-1
+
+
+# kubectl get pod -n job-1 -oyaml |grep -B 5 terminationMessagePath
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:cpu: {}
+                  f:memory: {}
+              f:terminationMessagePath: {}
+--
+          cpu: 200m
+          memory: 64Mi
+        requests:
+          cpu: 100m
+          memory: 16Mi
+      terminationMessagePath: /dev/termination-log
+--
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:cpu: {}
+                  f:memory: {}
+              f:terminationMessagePath: {}
+--
+          cpu: 200m
+          memory: 64Mi
+        requests:
+          cpu: 100m
+          memory: 16Mi
+      terminationMessagePath: /dev/termination-log
+--
+                  f:memory: {}
+                f:requests:
+                  .: {}
+                  f:cpu: {}
+                  f:memory: {}
+              f:terminationMessagePath: {}
+--
+          cpu: 200m
+          memory: 64Mi
+        requests:
+          cpu: 100m
+          memory: 16Mi
+      terminationMessagePath: /dev/termination-log
+
+# kubectl rollout history deploy my-nginx -n job-1                                                                   deployment.apps/my-nginx
+REVISION  CHANGE-CAUSE
+1         kubectl scale deployment my-nginx --replicas=3 --namespace=job-1 --record=true
+2         kubectl set resources deploy my-nginx --containers=nginx --limits=cpu=200m,memory=64Mi --requests=cpu=100m,memory=16Mi --record=true --namespace=job-1
+
