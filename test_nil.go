@@ -23,3 +23,10 @@ func main() {
 	fmt.Printf("%#v\n", f)
 	fmt.Printf("%#v\n", i)
 }
+//nil 是 map、slice、pointer、channel、func、interface 的零值
+//map[int]string(nil)
+//(*int)(nil)
+//(chan int)(nil)
+//[]int(nil)
+//(func())(nil)
+//<nil>
