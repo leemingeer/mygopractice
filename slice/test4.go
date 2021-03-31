@@ -41,14 +41,20 @@ func main() {
 	fmt.Println("-----slice-----")
 
 	str1 := "hello world"
-	str_slice := str1[1:8]
+	str_slice := str1[1:8] // return substring
 	fmt.Println(&str1, &str_slice)
-    ss1 := []string{"helo", "world"}
-    fmt.Println(ss1)
-	ss2 := []byte{'h','e','l', 'o', ' ', 'w', 'o','r','l','d'}
-	fmt.Println(ss2[1:8], string(ss2[1:8]))
-	fmt.Println("----------")
+	fmt.Printf("%T\n", str_slice)
+	//str_slice[3]='M' // can't modify
+	fmt.Println(str1, str_slice)
 
+	ss1 := []string{"helo", "world"}
+	fmt.Println(ss1)
+	ss2 := []byte{'h','e','l', 'o', ' ', 'w', 'o','r','l','d'}
+	ss3 :=  ss2[1:8]
+	fmt.Println(ss3, string(ss3))
+	ss3[3]='M' // ss2 and ss3 both modified, because share the same under array
+	fmt.Println(string(ss2), string(ss3))
+	fmt.Println("-----append-----")
 	var a = []int{1,2,3}
 	a = append([]int{0}, a...)
 	fmt.Println(a)
