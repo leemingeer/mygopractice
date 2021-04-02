@@ -9,7 +9,8 @@ func main(){
 	var mapp map[string]float32
 	mapp = make(map[string]float32)
 	mapp["name"] = 11.11
-	fmt.Printf("%v\n", mapp)
+	mapp["age"] = 32
+	fmt.Printf("%v, %d\n", mapp,mapp['age'])
 
 	//m2 短声明
 	mappp := make(map[string]float32)
