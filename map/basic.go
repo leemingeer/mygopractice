@@ -4,23 +4,24 @@ import (
 	"fmt"
 )
 
-func main(){
-	// m1 原生普通方式
-	var mapp map[string]float32
-	mapp = make(map[string]float32)
+func main() {
+	mapp := make(map[string]float32)
+	fmt.Println(mapp == nil) // false,
+	fmt.Printf("%v,%p\n", mapp, &mapp) //map[], 0xc000006028
 	mapp["name"] = 11.11
 	mapp["age"] = 32
-	fmt.Printf("%v, %d\n", mapp,mapp['age'])
+	fmt.Printf("%v, %f, %f\n", mapp, mapp["age"], mapp["location"])
 
-	//m2 短声明
-	mappp := make(map[string]float32)
-	mappp["sex"]=22.22
-	fmt.Printf("%v\n", mappp)
-	fmt.Println(mappp)
 
-	//m3 结合
-	var mapppp = make(map[string]float32)
-	mapppp["school"] = 33.33
-	fmt.Printf("%v\n", mapppp)
-	fmt.Println(mapppp)
+
+	var ages map[string]int  // 声明但没有初始化
+	fmt.Println(ages == nil)    // "true"
+	fmt.Println(len(ages) == 0) // "true"
+	//ages["carol"] = 21  // panic: assignment to entry in nil map
+
+	ages2 := map[string]int{}  // 声明但没有初始化
+	fmt.Println(ages2 == nil)    // "false", allocate memory
+	fmt.Println(len(ages2) == 0) // "true"
+	ages2["carol"] = 21
+	fmt.Printf("%v", ages2)  //map[carol:21]
 }
