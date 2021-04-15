@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: job-2
+  name: job-3
 
 ---
 apiVersion: apps/v1
@@ -11,7 +11,7 @@ metadata:
   labels:
     app: nginx
   name: nginx
-  namespace: job-2 
+  namespace: job-3 
 spec:
   progressDeadlineSeconds: 600
   replicas: 2
@@ -35,25 +35,35 @@ spec:
         imagePullPolicy: IfNotPresent
         name: nginx
         resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
+        livenessProbe:
+          initialDelaySeconds: 2
+          periodSeconds: 3
+          exec:
+            command:
+            - cat
+            - /data/pic1.png
         volumeMounts:
         - name: nginx-conf-cm
           mountPath: /etc/nginx/nginx.conf
           subPath: etc/nginx/nginx.conf
+        - name: nfs-volume
+          mountPath: /data/
       volumes:
       - name: nginx-conf-cm 
         configMap:
           defaultMode: 420
-          name: cm-nginx.yml
+          name: nginx-config 
           items:
-          - key: cm-nginx.yml
+          - key: nginx.conf
             path: etc/nginx/nginx.conf
+      - name: nfs-volume
+        nfs:
+          server: 178.104.163.104
+          path: "/job-3"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+
 

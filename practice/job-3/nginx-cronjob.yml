@@ -1,0 +1,28 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cleanlog
+  namespace: job-3
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cleanlog
+            image: busybox
+            volumeMounts:
+            - name: nfs-volume
+              mountPath: /data/
+            command: ["/bin/sh"]
+            args: ["-c","find /data/ -type f -mtime +7 -name '*.png' | xargs rm -rf"]
+          volumes:
+          - name: nfs-volume
+            nfs:
+              server: 178.104.163.104
+              path: "/job-3"
+          restartPolicy: OnFailure
+  successfulJobsHistoryLimit: 1
+
