@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox
+  labels:
+    app: busybox
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          command:
+            - sh
+            - -c
+            - "while true; do { ip=$(ifconfig eth0 | grep 'inet addr' | cut -d ':' -f 2 | cut -d ' ' -f 1);
+          echo -e 'HTTP/1.1 200 OK\r\n'; echo $(uname -n) $ip;} | nc -l -p 8080; done;"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: busybox
+spec:
+  type: ClusterIP
+  selector:
+    app: busybox
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
