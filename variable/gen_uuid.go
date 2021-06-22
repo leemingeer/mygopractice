@@ -15,10 +15,14 @@ import (
 
 // To run:
 <<<<<<< HEAD
+<<<<<<< HEAD
 // go run client.go
 =======
 // go run main.go
 >>>>>>> c329c16... practice
+=======
+// go run client.go
+>>>>>>> 892f398... add simple grpc example
 
 func genXid() {
 	id := xid.New()
