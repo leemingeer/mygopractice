@@ -14,7 +14,11 @@ import (
 )
 
 // To run:
+<<<<<<< HEAD
 // go run client.go
+=======
+// go run main.go
+>>>>>>> c329c16... practice
 
 func genXid() {
 	id := xid.New()
