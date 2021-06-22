@@ -20,7 +20,7 @@ func main() {
 		i++
 	}, time.Second, stopCh)
 
-	time.Sleep(time.Second * 5)
+	time.Sleep(time.Second * 10)
 
 	stopCh <- stop{}
 	// 下面的形式，也是可以的
