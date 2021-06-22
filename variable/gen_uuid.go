@@ -14,7 +14,7 @@ import (
 )
 
 // To run:
-// go run main.go
+// go run client.go
 
 func genXid() {
 	id := xid.New()
