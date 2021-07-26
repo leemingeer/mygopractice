@@ -15,14 +15,10 @@ func main() {
 		ch <- 0
 		fmt.Println("exit goroutine")
 	}()
-	time.Sleep(3*time.Second)
+	time.Sleep(3 * time.Second)
 	fmt.Println("wait goroutine")
 	// 等待匿名goroutine
 	<-ch
 	fmt.Println("all done")
-
-
-
-
 
 }

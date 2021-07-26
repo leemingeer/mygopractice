@@ -1,8 +1,10 @@
 package main
+
 import (
 	"flag"
 	"fmt"
 )
+
 var Input_pstrName = flag.String("name", "gerry", "input ur name")
 var Input_piAge = flag.Int("age", 20, "input ur age")
 
@@ -34,4 +36,3 @@ func main() {
 //name= ming
 //age= 32
 //flagname= 30
-

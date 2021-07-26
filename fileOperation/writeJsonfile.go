@@ -8,15 +8,15 @@ import (
 
 type Website struct {
 	Name   string `xml:"name,attr"`
-	Url    string  `json:"TestURL"`
+	Url    string `json:"TestURL"`
 	Course []string
 }
 
 func main() {
 	info := []Website{
 		{"Golang",
-		"http://c.biancheng.net/golang/",
-		[]string{"http://c.biancheng.net/cplus/", "http://c.biancheng.net/linux_tutorial/"}},
+			"http://c.biancheng.net/golang/",
+			[]string{"http://c.biancheng.net/cplus/", "http://c.biancheng.net/linux_tutorial/"}},
 		{"Java",
 			"http://c.biancheng.net/java/",
 			[]string{"http://c.biancheng.net/socket/", "http://c.biancheng.net/python/"}}}

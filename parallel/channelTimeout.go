@@ -1,8 +1,10 @@
 package main
+
 import (
 	"fmt"
 	"time"
 )
+
 func main() {
 	ch := make(chan int)
 	quit := make(chan bool)

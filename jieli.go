@@ -1,11 +1,14 @@
 package main
+
 import (
 	"fmt"
 	"sync"
 	"time"
 )
+
 // wg 用来等待程序结束
 var wg sync.WaitGroup
+
 // main 是所有Go 程序的入口
 func main() {
 	// 创建一个无缓冲的通道
@@ -19,6 +22,7 @@ func main() {
 	// 等待比赛结束
 	wg.Wait()
 }
+
 // Runner 模拟接力比赛中的一位跑步者
 func Runner(baton chan int) {
 	var newRunner int

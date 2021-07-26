@@ -1,15 +1,15 @@
 package main
 
 import (
-"encoding/json"
-"fmt"
-"os"
+	"encoding/json"
+	"fmt"
+	"os"
 )
 
 type Website2 struct {
-	Name   string `xml:"name,attr"`
-	TestURL    string `json："TestURL"`
-	Course []string
+	Name    string `xml:"name,attr"`
+	TestURL string `json："TestURL"`
+	Course  []string
 }
 
 func main() {

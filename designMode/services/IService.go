@@ -4,15 +4,14 @@ type IService interface {
 	Get(id int) string
 }
 
-type ServiceFactory struct{
-
+type ServiceFactory struct {
 }
 
-func NewServiceFactory() *ServiceFactory{
+func NewServiceFactory() *ServiceFactory {
 	return &ServiceFactory{}
 }
 
-func (sf ServiceFactory) Create(name string) IService{
+func (sf ServiceFactory) Create(name string) IService {
 	switch name {
 	case "news":
 		return &NewsService{}

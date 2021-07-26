@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-func main(){
-	cidr := []string{"x","y", "z"}
+func main() {
+	cidr := []string{"x", "y", "z"}
 	format_cidr := strings.Join(cidr, "-")
 	fmt.Println(format_cidr)
 	outDir := "/home/cloud"

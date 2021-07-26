@@ -13,7 +13,6 @@ func main() {
 	pos := strings.Index(tracer[comma:], "死神")
 	fmt.Println(comma, pos, tracer[comma+pos:])
 
-
 	angel := "Aeros never die"
 	angleBytes := []byte(angel)
 	fmt.Println(angleBytes)
@@ -22,7 +21,6 @@ func main() {
 		angleBytes[i] = ' '
 	}
 	fmt.Println(string(angleBytes))
-
 
 	hammer := "吃我一锤"
 	sickle := "死吧"

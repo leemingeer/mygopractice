@@ -30,8 +30,8 @@ func main() {
 	var writer DataWriter
 
 	// 将接口赋值f，也就是*file类型
-	writer = f   // 接口被实现了
+	writer = f // 接口被实现了
 
 	// 使用DataWriter接口进行数据写入
-	writer.WriteData("data")  // 使用接口变量去调用接口的方法，其实调用的是真正实现的方法
+	writer.WriteData("data") // 使用接口变量去调用接口的方法，其实调用的是真正实现的方法
 }

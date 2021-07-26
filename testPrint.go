@@ -15,10 +15,10 @@ func main() {
 		Name: "rat",
 		HP:   150,
 	}
-	fmt.Printf("使用'%%v' %v\n", profile) //&{rat 150}
-	fmt.Printf("使用'%%v' %v\n", *profile) //{rat 150}
+	fmt.Printf("使用'%%v' %v\n", profile)   //&{rat 150}
+	fmt.Printf("使用'%%v' %v\n", *profile)  //{rat 150}
 	fmt.Printf("使用'%%+v' %+v\n", profile) // &{Name:rat HP:150}
 	fmt.Printf("使用'%%#v' %#v\n", profile) // &struct { Name string; HP int }{Name:"rat", HP:150}
-	fmt.Printf("使用'%%T' %T\n", profile) // *struct { Name string; HP int }
-	
+	fmt.Printf("使用'%%T' %T\n", profile)   // *struct { Name string; HP int }
+
 }

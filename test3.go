@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func f1(){
+func f1() {
 	var a int8 = -1
-	var b int8 = -128/a
+	var b int8 = -128 / a
 	fmt.Println(b)
 	// -128
 
@@ -18,7 +18,7 @@ func f1(){
 //
 //}
 
-func main(){
+func main() {
 	f1()
 	// f2()
 }

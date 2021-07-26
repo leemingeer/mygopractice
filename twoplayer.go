@@ -13,6 +13,7 @@ var wg sync.WaitGroup
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
+
 // main 是所有Go 程序的入口
 func main() {
 	// 创建一个无缓冲的通道
@@ -28,6 +29,7 @@ func main() {
 	// 等待游戏结束
 	wg.Wait()
 }
+
 // player 模拟一个选手在打网球
 func player(name string, court chan int) {
 	// 在函数退出时调用Done 来通知main 函数工作已经完成
@@ -35,13 +37,13 @@ func player(name string, court chan int) {
 	for {
 		// 等待球被击打过来
 		fmt.Printf("%s waiting ball coming!\n", name)
-		ball, ok := <-court  // get zero if channel already closed
+		ball, ok := <-court // get zero if channel already closed
 		fmt.Printf("%s get the ball!\n", name)
 		if !ok {
 			// 如果通道被关闭，我们就赢了
 			fmt.Printf("I'm %d, channel is closed!\n", ball)
 			fmt.Printf("Player %s Won\n", name)
-			for i:=0;i<5;i++{
+			for i := 0; i < 5; i++ {
 				ball1, ok1 := <-court
 				fmt.Printf("channel is closed, but you can continue read ball: %d, ok2:%t from the closed channel\n", ball1, ok1)
 			}

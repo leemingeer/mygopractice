@@ -3,8 +3,8 @@ package main
 
 import (
 	"fmt"
-"k8s.io/apimachinery/pkg/util/wait"
-"time"
+	"k8s.io/apimachinery/pkg/util/wait"
+	"time"
 )
 
 type stop struct {

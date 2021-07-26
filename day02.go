@@ -4,16 +4,16 @@ import "fmt"
 
 func main() {
 
-	slice := []int{0,1,2,3}
+	slice := []int{0, 1, 2, 3}
 	m := make(map[int]*int)
 
-	for key, val := range slice{
+	for key, val := range slice {
 		fmt.Printf("value: %d value_adress: %X\n", val, &val)
 		value := &val
 		m[key] = value
 	}
 
-	for k, v := range m{
+	for k, v := range m {
 		fmt.Println(k, "->", *v)
 	}
 }

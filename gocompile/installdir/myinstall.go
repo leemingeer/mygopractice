@@ -2,7 +2,7 @@ package install
 
 import "fmt"
 
-func sayHello(){
+func sayHello() {
 
 	fmt.Print("This is hello in sayHello function")
 }

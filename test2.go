@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-func main(){
-	const(
+func main() {
+	const (
 		a, b = "golang", 100
 		d, e
 		f bool = true
@@ -12,4 +12,5 @@ func main(){
 	fmt.Print(d, e, g)
 
 }
+
 // golang100 true
