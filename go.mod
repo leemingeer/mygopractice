@@ -8,6 +8,7 @@ require (
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/mock v1.5.0
 	github.com/google/uuid v1.1.2
+	github.com/inhies/go-bytesize v0.0.0-20201103132853-d0aed0d254f8
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
 	github.com/oklog/ulid v1.3.1
 	github.com/onsi/ginkgo v1.11.0
