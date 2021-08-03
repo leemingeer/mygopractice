@@ -47,6 +47,7 @@ func inRange(point *pb.Point, rect *pb.Rectangle) bool {
 func (s *routeGuideServer) ListFeatures(rectangle *pb.Rectangle, stream pb.RouteGuide_ListFeaturesServer) error {
 	for _, feature := range s.features {
 		if inRange(feature.Location, rectangle) {
+			// 返回流
 			if err := stream.Send(feature); err != nil {
 				return err
 			}
@@ -86,6 +87,7 @@ func (s *routeGuideServer) RecordRoute(stream pb.RouteGuide_RecordRouteServer) e
 	var prevPoint *pb.Point
 	for {
 		point, err := stream.Recv()
+		// 用户停止上传
 		if err == io.EOF {
 			// conclude a route summary
 			endTime := time.Now()
@@ -176,6 +178,7 @@ func main() {
 	}
 	grpcServer := grpc.NewServer()
 	// 注册函数的第二个参数是RouteGuideServer接口类型，规定了要实现的方法，需要我们定义类型来实现这个接口
+	// 标准步骤
 	pb.RegisterRouteGuideServer(grpcServer, newServer())
 	log.Fatalln(grpcServer.Serve(lis))
 }
