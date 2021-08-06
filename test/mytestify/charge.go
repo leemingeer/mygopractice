@@ -1,8 +1,10 @@
 package mytestify
 
 import (
-"fmt"
+	"fmt"
 )
+
+var A =  func()string{ return "hello world"}()
 
 // MessageService 通知客户被收取的费用
 type MessageService interface {
