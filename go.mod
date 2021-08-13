@@ -3,7 +3,6 @@ module 1stgoproj
 go 1.15
 
 require (
-	github.com/HanFa/learn-go/grpc-example v0.0.0-20210716024542-25f9d2810b9c
 	github.com/chilts/sid v0.0.0-20190607042430-660e94789ec9
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/mock v1.5.0

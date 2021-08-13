@@ -69,7 +69,7 @@ func main(){
 	var lunVal int32
 	if lunlun != "" {
 		l, err := strconv.Atoi(lunlun)
-      fmt.Println(err)
+     fmt.Println(err)
 		lunVal = int32(l)
 	}
 	fmt.Println(lunVal, reflect.TypeOf(lunVal))
