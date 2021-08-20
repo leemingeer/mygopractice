@@ -16,10 +16,11 @@ require (
 	github.com/satori/go.uuid v1.2.0
 	github.com/segmentio/ksuid v1.0.3
 	github.com/sony/sonyflake v1.0.0
-	github.com/stretchr/testify v1.6.1
+	github.com/spf13/cobra v1.2.1
+	github.com/stretchr/testify v1.7.0
 	google.golang.org/grpc v1.38.0
 	google.golang.org/protobuf v1.26.0
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 	k8s.io/apimachinery v0.21.0
 	k8s.io/klog/v2 v2.8.0
 )

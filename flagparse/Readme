@@ -44,3 +44,22 @@ numb: 42
 fork: false
 svar: bar
 tail: []
+
+--------------------------
+
+$ ./cobra.exe --nodeid=x --endpoint=y
+This is handle!
+ get nodeID: x, endpoint:y
+
+Administrator@mli MINGW64 ~/go/src/goproj/flagparse (master)
+$ ./cobra.exe --nodeid=x
+Error: required flag(s) "endpoint" not set
+Usage:
+  arstorplugin [flags]
+
+Flags:
+      --endpoint string    usage CSI endpoint
+  -h, --help              help for arstorplugin
+      --nodeid string      usage node id
+
+required flag(s) "endpoint" not set
