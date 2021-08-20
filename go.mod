@@ -10,8 +10,8 @@ require (
 	github.com/inhies/go-bytesize v0.0.0-20201103132853-d0aed0d254f8
 	github.com/kjk/betterguid v0.0.0-20170621091430-c442874ba63a
 	github.com/oklog/ulid v1.3.1
-	github.com/onsi/ginkgo v1.11.0
-	github.com/onsi/gomega v1.7.0
+	github.com/onsi/ginkgo v1.16.4
+	github.com/onsi/gomega v1.10.1
 	github.com/rs/xid v1.3.0
 	github.com/satori/go.uuid v1.2.0
 	github.com/segmentio/ksuid v1.0.3
