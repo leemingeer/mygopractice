@@ -1,0 +1,46 @@
+$ ./command-line-flags -word=opt a1 a2 a3 -numb=7
+word: opt
+numb: 42
+fork: false
+svar: bar
+tail: [a1 a2 a3 -numb=7]
+
+$ ./command-line-flags -word=opt a1 a2 a3 -numb=7
+word: opt
+numb: 42
+fork: false
+svar: bar
+tail: [a1 a2 a3 -numb=7]
+
+$ ./command-line-flags.exe xy
+word: foo
+numb: 42
+fork: false
+svar: bar
+tail: [xy]
+
+
+$ ./command-line-flags -wat
+flag provided but not defined: -wat
+Usage of ./command-line-flags:
+...
+
+$ ./command-line-flags.exe -word
+flag needs an argument: -word
+Usage of C:\Users\Administrator\go\src\goproj\flagparse\command-line-flags.exe:
+  -fork
+        a bool
+  -numb int
+        an int (default 42)
+  -svar string
+        a string var (default "bar")
+  -word string
+        a string (default "foo")
+
+Administrator@mli MINGW64 ~/go/src/goproj/flagparse (master)
+$ ./command-line-flags.exe -word=
+word:
+numb: 42
+fork: false
+svar: bar
+tail: []
