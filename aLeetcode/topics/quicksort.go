@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 )
 
@@ -12,13 +11,18 @@ func qsort(a []int, left,right int){
 	i := left
 	j := right
 	p := a[left]
-	for i < j{
+	for {
 		for a[j] > p{
 			j --
 		}
 		for a[i] < p{
 			i ++
 		}
+
+		if i == j {
+			break
+		}
+		// 使用第一个元素作为a[pivot], 因为这句交换， a[i]的值才会动起来
 		a[i], a[j] = a[j], a[i]
 	}
 
@@ -27,29 +31,24 @@ func qsort(a []int, left,right int){
 }
 
 func qsort2(a []int) []int {
-	fmt.Println("---next level---", a)
 	if len(a) < 2 { return a }
-
 	left, right := 0, len(a) - 1
-
 	// Pick a pivot
 	pivotIndex := rand.Int() % len(a)
-	fmt.Println("pivotIndex: ", pivotIndex)
-
 	// Move the pivot to the right
 	a[pivotIndex], a[right] = a[right], a[pivotIndex]
 
 	// Pile elements smaller than the pivot on the left
+	//
+	// left左变的一定比a[pivot]小，右边的一定比a[pivot]大
+	// 最后再把a[pivot]跟a[left]交换
+	// a[pivot]找到正确的位置
 	for i := range a {
-		fmt.Println(a, i, left, right)
 		if a[i] < a[right] {
 			a[i], a[left] = a[left], a[i]
 			left++
 		}
 	}
-
-	fmt.Println("after for:", left, right)
-
 	// Place the pivot after the last smaller element
 	a[left], a[right] = a[right], a[left]
 
