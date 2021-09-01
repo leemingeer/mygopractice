@@ -1,12 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+func  main() {
+	s := []int{4,5,6}
+	fmt.Printf("%p\n", &s[0])
+	s1 := s[:1]
+	s2 := s[:2]
+	fmt.Printf("%p , %p\n", s1, s2)
 
-func main() {
-	s := make([]int, 10)
-	fmt.Printf("Addr of first element: %p\n", &s[0])
-	fmt.Printf("Addr of slice itself:  %p\n", &s)
+	fmt.Printf("%p\n", &s1)
+
 }
-// why they are different?
-// Addr of first element: 0xc00001e0a0
-// Addr of slice itself:  0xc00000c060

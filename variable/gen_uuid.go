@@ -18,7 +18,7 @@ import (
 <<<<<<< HEAD
 // go run client.go
 =======
-// go run main.go
+// go run returnvalue.go
 >>>>>>> c329c16... practice
 =======
 // go run client.go
