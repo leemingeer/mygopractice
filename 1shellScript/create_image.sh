@@ -1,0 +1,2 @@
+# upload image
+glance image-create --name kubespray-aarch64.raw --visibility public --disk-format raw --container-format bare --property image_source=image --property os_type=linux --property os_version="CentOS 7.6 64-bit"  --property image_type=GENERAL  --property os_distro=centos --property volume_type=basic-replica2 --property kubernetes_source=true  --file /var/log/kubespray-aarch64.raw --progress
