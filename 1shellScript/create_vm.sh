@@ -54,8 +54,8 @@ nova  --debug boot \
 	--nic net-id=$network_mgr \
 	--nic net-id=$network_data \
 	--priority $priority \
-        --meta storage_type=ARSTOR \
-        --security-groups=c545cde6-c3ff-4c65-ade6-75bfb452eafd \
+  --meta storage_type=ARSTOR \
+  --security-groups=c545cde6-c3ff-4c65-ade6-75bfb452eafd \
 	${vm_name}_${priority}
 
 ##--hint group=${server_group_id}
