@@ -5,16 +5,29 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
-	"github.com/inhies/go-bytesize"
 )
 
 func main() {
+
+	fmt.Println('A') // 65
+	fmt.Println("A") // "A"
+	fmt.Println(byte('A'), []byte("A")) // 65, [65]
+
+	fmt.Println(6, '6', "6")
+	fmt.Println("54", string(54))
+
+	fmt.Println(string(65)) // "A"
+	fmt.Println(byte(65)) // 65
+	fmt.Println( "66") // 65
+
 	// Convert string to bytes
-	b := []byte("ABC€")
-	fmt.Println(b) // [65 66 67 226 130 172]
+	b := []byte("ABC")
+	fmt.Println(b) // [65 66 67]
 	// Convert bytes to string
-	s := string([]byte{65, 66, 67, 226, 130, 172})
-	fmt.Println(s) // ABC€
+	s := string([]byte{65, 66, 67})
+	fmt.Println(s) // ABC
+
+
 
 	sp := strings.Split("a,b,c", ",")
 	fmt.Println(reflect.TypeOf(sp)) // []string
@@ -22,19 +35,6 @@ func main() {
 	fmt.Printf("%#v\n", sp)         // []string{"a", "b", "c"}
 	fmt.Printf("%q\n", sp)          // ["a" "b" "c"]
 
-	b1, _ := bytesize.Parse("1024GB")
-	b1_format := b1.Format("%.2f ", "byte", true)
-	fmt.Printf("%s\n", b1_format)
-
-	b2, _ := bytesize.Parse("1023 GB")
-	fmt.Printf("%s\n", b2)
-
-	b3, _ := bytesize.Parse(" 10 TB")
-	b3_format := b3.Format("%.2f ", "byte", true)
-	fmt.Printf("%s\n", b3)
-	fmt.Printf("%s\n", b3_format)
-
-	fmt.Println(b1_format < b3_format)
 	b4, _ := strconv.ParseBool("False")
 	fmt.Println(b4, b4 == false)
 	iopsLimitInt, err := strconv.Atoi("")

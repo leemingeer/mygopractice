@@ -156,4 +156,7 @@ func main() {
 	   Join time is 0.016644653
 	*/
 
+	fmt.Println(strings.Fields(" xx yy rar "))
+	fmt.Println(strings.Split(" xx yy rar ", " "), len(strings.Split(" xx yy rar ", " ")))
+
 }
