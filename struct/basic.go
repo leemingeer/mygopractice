@@ -2,23 +2,32 @@ package main
 
 import "fmt"
 
+
 type Person struct {
 	age     int
-	address []string
+	name string
 }
+
+var students = []Person{
+	{ age: 2, name: "ming"},
+	{ age: 2, name: "ming"},
+	{ age: 3, name: "ming"},
+	{ age: 1, name: "li"},
+	{ age: 4, name: "li"},
+	{ age: 3, name: "li"},
+}
+
+
 
 func main() {
 
-	var one Person
-	fmt.Printf("one: %v,%v, %p\n", one, &one, &one) // {0 []},&{0 [], 0xc0000a6020
+	m2 := make(map[string]int)
 
-	two := Person{}
-	fmt.Printf("two: %v,%v, %p\n", two, &two, &two) //{0 []},&{0 []}, 0xc0000a6080
-
-	three := Person{age: 12,
-		address: []string{"shanghai", "SD"},
+    for _, p := range students{
+    		m2[p.name]+= p.age
 	}
+	fmt.Println(m2)
 
-	fmt.Printf("three: %v,%v, %p\n", three, &three, &three) //{12 [shanghai SD]},&{12 [shanghai SD]}, 0xc00000c0c0
+
 
 }
