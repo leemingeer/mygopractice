@@ -81,4 +81,11 @@ func main(){
 
 	ss := string(97)
 	fmt.Println(ss)
+
+	sss := "abc"
+	for i, v:= range sss {
+		fmt.Println(i, v, string(v), reflect.TypeOf(v), 'a', reflect.TypeOf('a'), byte('a'), []byte('a'))
+	}
+
+
 }
