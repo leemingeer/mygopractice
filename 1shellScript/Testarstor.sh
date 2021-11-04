@@ -1,5 +1,7 @@
 # 本地单独跑arstor e2e
 #!/bin/bash
+#- PORTALS: docker exec -it mxsp curl localhost/api/v3/ping
+#- TARGETPORTAL: docker exec -it mxsp sh -c "mxSCST showvip"
 export KUBECONFIG=/root/.kube/config
 export ARSTORPLUGIN_NAMESPACE=default
 export PORTALS='["10.0.211.10:80"]'

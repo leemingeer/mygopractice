@@ -34,13 +34,15 @@ func main() {
 	fmt.Println(sp)                 // [a b c]
 	fmt.Printf("%#v\n", sp)         // []string{"a", "b", "c"}
 	fmt.Printf("%q\n", sp)          // ["a" "b" "c"]
-
 	b4, _ := strconv.ParseBool("False")
 	fmt.Println(b4, b4 == false)
 	iopsLimitInt, err := strconv.Atoi("")
 	if err != nil {
 	}
-	fmt.Printf("result: %d", iopsLimitInt)
-
-
+	fmt.Printf("result: %d\n", iopsLimitInt)
+	strHaiCoder := " x yz  "
+	fmt.Printf("%s", strings.TrimSpace(strHaiCoder))
+	maxVolumeSize := "10T"
+	maxVolumeSize = string([]byte(maxVolumeSize)[:len(maxVolumeSize)-1])
+	fmt.Printf(" maxvolumesize: %s", maxVolumeSize)
 }

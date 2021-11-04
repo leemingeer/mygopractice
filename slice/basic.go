@@ -16,4 +16,7 @@ func main() {
 
 	s1 = append(s1, 1)
 	fmt.Printf("%v\n", s1) //[1]
+	
+	s3:= []int{1,2}
+	fmt.Println(s3, s3[2])
 }

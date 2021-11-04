@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+var global int
+
 func main(){
 	arrays := []int{1,2,3,4}
 
@@ -34,5 +36,19 @@ func main(){
 	}
 	time.Sleep(time.Second)
 
+	for i:=0; i<10; i++{
 
+		go func(i int){
+			global := doublei(i)
+			fmt.Println(i, global)
+
+		}(i)
+	}
+	time.Sleep(time.Second)
+
+}
+
+func doublei(i int) int{
+	global = 2 * i
+	return global
 }
