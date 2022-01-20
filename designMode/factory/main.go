@@ -23,8 +23,9 @@ func evalRPN(tokens []string) int {
 }
 
 
-type Addint int
-func (a Addint) calculate(num1, num2 int)int{
+type Addint1 int
+
+func (a Addint1) calculate(num1, num2 int)int{
 	return num1 + num2
 }
 type Minint int
@@ -44,25 +45,23 @@ type I interface{
 	calculate(num1, num2 int) int
 }
 
+
 func factory(oper string) I{
-	var obj Addint
+
+	var obj I
+
 	if oper == "+"{
-		return Addint(1)
-		var obj Addint
-		return obj
+		obj = Addint1(2)
 	}
 
 	if oper == "*"{
-		var obj Multiint
-		return obj
+        obj = Multiint(1)
 	}
 	if oper == "-"{
-		var obj Minint
-		return obj
+		obj = Minint(1)
 	}
 	if oper == "/"{
-		var obj Divint
-		return obj
+		obj =  Divint(1)
 	}
 	return obj
 }

@@ -14,10 +14,14 @@ func main() {
 	nikeShoe := nikeFactory.makeShoe()
 	nikeShirt := nikeFactory.makeShirt()
 
+	println("nike shoe")
 	printShoeDetails(nikeShoe) // // 通过抽象产品调用产品的方法，注意此时变体已经确定下来是nike了，只能生产nike的Shoe
+	println("nike shirt")
 	printShirtDetails(nikeShirt)
 
+	println("adidas shoe")
 	printShoeDetails(adidasShoe)
+	println("adidas shirt")
 	printShirtDetails(adidasShirt)
 }
 

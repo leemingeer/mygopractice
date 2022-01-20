@@ -29,7 +29,4 @@ require (
 	k8s.io/apimachinery v0.22.1
 	k8s.io/client-go v0.18.15
 	k8s.io/klog/v2 v2.9.0
-	k8s.io/kubernetes/pkg/scheduler/framework v1.20.0
 )
-
-replace k8s.io/kubernetes => k8s.io/kubernetes v1.21.4

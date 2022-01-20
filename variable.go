@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"strings"
 )
 
 var name string
@@ -32,10 +33,14 @@ func showvar(){
 
 
 func main(){
+	dev:= "/dev/sdf"
+	
+	fmt.Println(len(strings.Split(dev, "/")), strings.Split(dev, "/")[2])
 	fmt.Printf("name: %s\n", name)
 	setName()
 	showName()
 	fmt.Printf("name: %s\n", name)
 	showvar()
+	
 
 }
