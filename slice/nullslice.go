@@ -17,4 +17,8 @@ func main(){
 	for s := range s2{
 		fmt.Println(reflect.TypeOf(s))
 	}
+
+	var s3 []string
+	s3 = append(s3, "ming")
+	fmt.Println(s3)
 }
