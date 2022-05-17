@@ -19,7 +19,8 @@ func main1(){
 	func(j int){
 		// 形参修改，只在内部，不会传出函数，如果传入的是地址，也可以传到函数外
 		j += 1
-		fmt.Printf("3 in: %v\n", i)
+		fmt.Printf("3 in i: %v\n", i)
+		fmt.Printf("3 in j: %v\n", j)
 	}(i)
 	fmt.Printf("4 out: %v\n", i)
 

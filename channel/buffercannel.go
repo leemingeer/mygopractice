@@ -1,14 +1,17 @@
 package main
 
 import (
-"fmt"
+	"fmt"
 )
 
-
 func main() {
-	ch := make(chan string, 0)
-	ch <- "naveen"
-	ch <- "paul"
-	fmt.Println(<- ch)
-	fmt.Println(<- ch)
+	ch := make(chan int, 5)
+	ch <- 1
+	ch <- 2
+	ch <- 3
+	close(ch)
+
+	for i := 0; i < 7; i++ {
+		fmt.Println("read from channel: ", <-ch)
+	}
 }

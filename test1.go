@@ -16,15 +16,17 @@ func fx(n int) {
 	fmt.Println(n)
 }
 
+func ret() {
+	fmt.Println("ret function")
+	//return
+	fmt.Println("after return")
+}
+
 func main() {
 	var t T
 	defer t.f(1).f(2)
 	fmt.Println(3)
 	fx(4)
-}
 
-// 1
-//3
-//104
-//4
-//2
+	ret()
+}
