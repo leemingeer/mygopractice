@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 
 type Person struct {
@@ -27,6 +30,7 @@ func main() {
     		m2[p.name]+= p.age
 	}
 	fmt.Println(m2)
+    fmt.Println(reflect.TypeOf(students))
 
 
 

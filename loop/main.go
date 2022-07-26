@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 var global int
@@ -17,34 +16,52 @@ func main(){
 	}
 	fmt.Println(finalarrays)
 
-
-	var finalarrayspoint []*int
-	for _, v := range(arrays){
-		finalarrayspoint = append(finalarrayspoint, &v)
-	}
-	for _, v := range(finalarrayspoint){
-		fmt.Println(*v)
+	type A struct {
+		a int
 	}
 
-    // 容易出错的闭包问题
-    // i 作为参数传入
-	for i:=0; i<10; i++{
-
-		go func(){
-			fmt.Println(i)
-		}()
+	b := []A{
+		{a: 2},
+		{a: 4},
+		{a: 6},
 	}
-	time.Sleep(time.Second)
 
-	for i:=0; i<10; i++{
-
-		go func(i int){
-			global := doublei(i)
-			fmt.Println(i, global)
-
-		}(i)
+	bb := make([]A, 0) // 这里slice里的元素类型是指针，如果是值就没有问题了
+	for _, a := range b {
+		//a := a // 取地址，
+		//
+		bb = append(bb, a)
 	}
-	time.Sleep(time.Second)
+	fmt.Println(bb)
+
+
+	//var finalarrayspoint []*int
+	//for _, v := range(arrays){
+	//	finalarrayspoint = append(finalarrayspoint, &v)
+	//}
+	//for _, v := range(finalarrayspoint){
+	//	fmt.Println(*v)
+	//}
+	//
+    //// 容易出错的闭包问题
+    //// i 作为参数传入
+	//for i:=0; i<10; i++{
+	//
+	//	go func(){
+	//		fmt.Println(i)
+	//	}()
+	//}
+	//time.Sleep(time.Second)
+	//
+	//for i:=0; i<10; i++{
+	//
+	//	go func(i int){
+	//		global := doublei(i)
+	//		fmt.Println(i, global)
+	//
+	//	}(i)
+	//}
+	//time.Sleep(time.Second)
 
 }
 

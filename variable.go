@@ -1,46 +1,26 @@
 package main
 
-import (
-	"fmt"
-	"reflect"
-	"strings"
-)
+import "fmt"
 
-var name string
-
-func setName(){
-	name = "Li"
-	valueofname := reflect.ValueOf(name)
-	fmt.Println(1, valueofname.Interface())
-	fmt.Println(2, valueofname.String())
-
-	valueOfName := reflect.ValueOf(&name)
-	valueOfName.Elem().Set(reflect.ValueOf("Mi"))
-	fmt.Println(3, name)
-
-
+type Student struct{
+	name string
+	age int
 }
 
-func showName(){
-	fmt.Println(4, name)
-}
+type myInt int
 
-func showvar(){
-	var aa string // local variable
-	aa ="varinfunc"
-	fmt.Println("aa in shwovar:", aa)
+func (m myInt) print(){
+	fmt.Println(m)
 }
-
 
 func main(){
-	dev:= "/dev/sdf"
-	
-	fmt.Println(len(strings.Split(dev, "/")), strings.Split(dev, "/")[2])
-	fmt.Printf("name: %s\n", name)
-	setName()
-	showName()
-	fmt.Printf("name: %s\n", name)
-	showvar()
-	
+	var t1 []int
+	fmt.Println(t1)
+	t1 = append(t1 ,3 )
+	t1[0] = 4
+	fmt.Println(t1)
+
+	var i myInt
+	i.print()
 
 }

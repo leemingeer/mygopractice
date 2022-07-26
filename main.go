@@ -16,7 +16,20 @@ type response2 struct {
 	Fruits []string `json:"fruits"`
 }
 
+func JsonToMapDemo() {
+	jsonStr := `{"name": "jqw","age": 18}`
+	var mapResult map[string]interface{}
+	err := json.Unmarshal([]byte(jsonStr), &mapResult)
+	if err != nil {
+		fmt.Println("JsonToMapDemo err: ", err)
+	}
+	fmt.Println("+v%", mapResult, mapResult["age"])
+}
+
+
 func main() {
+
+	JsonToMapDemo()
 
 	bolB, _ := json.Marshal(true)
 	fmt.Println(string(bolB))
@@ -75,4 +88,5 @@ func main() {
 	enc := json.NewEncoder(os.Stdout)
 	d := map[string]int{"apple": 5, "lettuce": 7}
 	enc.Encode(d)
+
 }
