@@ -99,6 +99,7 @@ func (p *provider) addToConfigmap(arstorid, targetportal, portal string) error {
 		return fmt.Errorf("Failed to get configmap")
 	}
 	glog.Infof("arstors: %#v", arstors)
+
 	arstors[arstorid] = NewarstorParams(targetportal, portal)
 	// to byte stream
 	arstorsNew, err1 := yaml.Marshal(arstors)
