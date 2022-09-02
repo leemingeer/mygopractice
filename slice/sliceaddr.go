@@ -6,10 +6,15 @@ import (
 func  main() {
 	s := []int{4,5,6}
 	fmt.Printf("%p\n", &s[0])
-	s1 := s[:1]
-	s2 := s[:2]
-	fmt.Printf("%p , %p\n", s1, s2)
+	s1 := s
+	fmt.Print(s1)
+	fmt.Printf("%p\n", &s1[0])
+	// modify
+	s[0] = 10
+	fmt.Print(s1)
 
-	fmt.Printf("%p\n", &s1)
-
+	s = nil
+	fmt.Print(s1)
+	s = append(s, 100)
+	fmt.Print(s, s1)
 }

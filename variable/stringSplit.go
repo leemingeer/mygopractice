@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	"strings"
+
 	//"reflect"
 )
 
 func main(){
-	maxVolumeSize := ""
-	maxVolumeSizeGB, err := strconv.Atoi(maxVolumeSize)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(maxVolumeSizeGB)
+	volumeId := ""
+	ArstorUId := strings.Split(volumeId, "-")
+	fmt.Println(ArstorUId)
 }
